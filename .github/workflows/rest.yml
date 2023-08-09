@@ -10,5 +10,5 @@ jobs:
     steps:
     - name: REST API with curl
       run: |
-        curl -X GET 'https://jsonplaceholder.typicode.com/posts/1'
+        curl -d "@data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
 
