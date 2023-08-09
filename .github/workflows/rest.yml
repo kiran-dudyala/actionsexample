@@ -23,7 +23,7 @@ jobs:
         echo vars.VOWELS
         echo env.VOWELS
         echo $DAY_OF_WEEK
-        echo ${{ Math.random() }}
+        node -e "console.log(Math.random())"
     - name: checkout envs and secrets
       run: |
         echo extracting data.json
