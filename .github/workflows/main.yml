@@ -1,7 +1,6 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: schedule API example
+
 on: 
-  repository_dispatch:
   schedule:
     - cron: '* * * * *'
 jobs:
@@ -10,5 +9,5 @@ jobs:
     steps:
     - name: REST API with curl
       run: |
-        curl -X GET "https://jsonplaceholder.typicode.com/posts/1"
+        curl -X GET 'https://jsonplaceholder.typicode.com/posts/1'
 
