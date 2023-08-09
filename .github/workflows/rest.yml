@@ -19,9 +19,9 @@ jobs:
     - name: checkout envs and secrets
       run: |
         npm -v
-        echo secrets.KEY
-        echo vars.VOWELS
-        echo env.VOWELS
+        echo {{secrets.KEY}}
+        echo {{vars.VOWELS}}
+        echo {{env.VOWELS}}
         echo $DAY_OF_WEEK
         node -e "console.log(Math.random())"
     - name: checkout envs and secrets
