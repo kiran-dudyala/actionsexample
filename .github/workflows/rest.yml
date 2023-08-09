@@ -11,23 +11,19 @@ jobs:
   post-API:
     runs-on: ubuntu-latest
     env:
-      DAY_OF_WEEK: Monday
+      CODE: 3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
+      NAME: kiran
     steps:
     - name: checkout code
       uses: actions/checkout@v3
 
     - name: checkout envs and secrets
       run: |
-        npm -v
         echo ${{secrets.KEY}}
-        echo ${{vars.VOWELS}}
-        echo ${{env.VOWELS}}
-        echo $DAY_OF_WEEK
+        echo $CODE
         node -e "console.log(Math.floor(Math.random() * 99999))"
     - name: checkout envs and secrets
       run: |
         echo extracting data.json
-        curl -d "@data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
-        echo extracting ./payload/data.json
-        curl -d "@/payload/data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
+        curl -d "@data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=$CODE
 
