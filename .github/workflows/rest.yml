@@ -3,7 +3,7 @@ name: schedule API example
 on: 
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/55 * * * *'
 jobs:
   post-API:
     runs-on: ubuntu-latest
