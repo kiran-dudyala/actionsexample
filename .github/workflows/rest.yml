@@ -28,6 +28,6 @@ jobs:
       run: |
         echo extracting data.json
         curl -d "@data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
-        echo extracting payload/data.json
+        echo extracting ./payload/data.json
         curl -d "@/payload/data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
 
