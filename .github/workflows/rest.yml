@@ -11,9 +11,10 @@ jobs:
     - name: REST API with curl
       run: |
         npm -v
+        echo ${{ Math.random() }}
         echo ${{ secrets.KEY }}
         echo ${{ Math.floor(Math.random() * 99999) }}
-        echo ${{ vars.VOWELS }}
         curl -d "@data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
-        curl -d "./payload/data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
+        echo ${{ vars.VOWELS }}
+        curl -d "@/payload/data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
 
