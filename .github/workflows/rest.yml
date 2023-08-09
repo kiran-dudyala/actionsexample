@@ -5,12 +5,13 @@ on:
   schedule:
     - cron: '*/55 * * * *'
 
-env:
-  DAY_OF_WEEK: Monday
+
 
 jobs:
   post-API:
     runs-on: ubuntu-latest
+    env:
+      DAY_OF_WEEK: Monday
     steps:
     - name: checkout code
       uses: action/checkout@v2
@@ -18,10 +19,11 @@ jobs:
     - name: checkout envs and secrets
       run: |
         npm -v
-        echo ${{ secrets.KEY }}
-        echo ${{ vars.VOWELS }}
-        echo ${{ env.VOWELS }}
-        echo ${{ $DAY_OF_WEEK }}
+        echo secrets.KEY
+        echo vars.VOWELS
+        echo env.VOWELS
+        echo $DAY_OF_WEEK
+        echo ${{ Math.random() }}
     - name: checkout envs and secrets
       run: |
         echo extracting data.json
