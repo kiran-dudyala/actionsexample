@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
   repository_dispatch:
   schedule:
-    - cron: '3 * * * *'
+    - cron: '* * * * *'
 jobs:
   post-API:
     runs-on: ubuntu-latest
