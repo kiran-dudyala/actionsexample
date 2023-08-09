@@ -4,15 +4,28 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '*/55 * * * *'
+
+env:
+  DAY_OF_WEEK: Monday
+
 jobs:
   post-API:
     runs-on: ubuntu-latest
     steps:
-    - name: REST API with curl
+    - name: checkout code
+      uses: action/checkout@v2
+
+    - name: checkout envs and secrets
       run: |
         npm -v
         echo ${{ secrets.KEY }}
-        curl -d "@data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
         echo ${{ vars.VOWELS }}
+        echo ${{ env.VOWELS }}
+        echo ${{ $DAY_OF_WEEK }}
+    - name: checkout envs and secrets
+      run: |
+        echo extracting data.json
+        curl -d "@data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
+        echo extracting payload/data.json
         curl -d "@/payload/data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
 
