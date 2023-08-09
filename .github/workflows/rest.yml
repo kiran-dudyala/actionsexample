@@ -10,5 +10,8 @@ jobs:
     steps:
     - name: REST API with curl
       run: |
+        npm -v
+        echo ${{ secrets.KEY }}
         curl -d "@data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
+        curl -d "./payload/data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDOfAzFuO3yzAg==
 
