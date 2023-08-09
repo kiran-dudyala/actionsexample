@@ -1,0 +1,14 @@
+name: schedule API example
+
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron: '2 * * * *'
+jobs:
+  post-API:
+    runs-on: ubuntu-latest
+    steps:
+    - name: REST API with curl
+      run: |
+        curl -X GET 'https://jsonplaceholder.typicode.com/posts/1'
+
