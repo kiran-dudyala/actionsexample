@@ -27,3 +27,6 @@ jobs:
         echo extracting data.json
         curl -d "@data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=$CODE
 
+        echo extracting data.json
+        curl -d "@./payload/data.json" -X POST https://gitactionfunc.azurewebsites.net/api/HttpTrigger1?code=$CODE
+
