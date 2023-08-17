@@ -21,7 +21,7 @@ jobs:
       run: |
         echo ${{secrets.KEY}}
         echo $CODE
-        node -e "console.log(Math.floor(Math.random() * 99999))"
+        node -e "console.log(Math.floor(Math.random() * 99999))" abcdefgh
     - name: post api call
       run: |
         echo $TEMP
