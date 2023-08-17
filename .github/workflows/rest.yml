@@ -24,7 +24,7 @@ jobs:
         node -e "console.log(Math.floor(Math.random() * 99999))"
     - name: post api call
       run: |
-        node -e abcedf Math.floor(Math.random() * 99999)
+        node -e Math.floor(Math.random() * 99999)
         echo extracting data.json
         curl -d "@./payload/data.json" -X POST https://gitonfunc.azuresites.net/api/HttpTrigger1?code=$CODE
 
