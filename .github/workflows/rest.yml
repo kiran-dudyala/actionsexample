@@ -9,9 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CODE: 3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDAzFuO3yzAg==
-      REQID: abcdef
-      TEMP: node -e "Math.floor(Math.random() * 99999)"
-
    
     steps:
     - name: actions checkout
@@ -19,15 +16,10 @@ jobs:
 
     - name: envs, secrets and random
       run: |
-        echo ${{secrets.KEY}}
-        echo $CODE
-        node -e "console.log(Math.floor(Math.random() * 99999))" + abcdefgh
+        node -e "console.log(Math.floor(Math.random() * 99999))" 
+        echo "abcd" + node -e "console.log(Math.floor(Math.random() * 99999))" 
     - name: post api call
       run: |
-        a:
-        b: &b "hello"
-        c: !concat [*b, "world"]
-        echo $c
         echo extracting data.json
         curl -d "@./payload/data.json" -X POST https://gitonfunc.azuresites.net/api/HttpTrigger1?code=$CODE
 
