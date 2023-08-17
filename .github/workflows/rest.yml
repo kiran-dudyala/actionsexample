@@ -15,9 +15,12 @@ jobs:
       uses: actions/checkout@v3
 
     - name: envs, secrets and random
+      shell: pwsh
       run: |
         node -e "console.log(Math.floor(Math.random() * 99999))" 
-        !concat [Math.floor(Math.random() * 99999), "world"]
+        $rand = (Get-Random -Minimum 0 -Maximum 99999 ).ToString('00000')
+        $val = "abcd"+$rand
+        echo $val
     - name: post api call
       run: |
         echo extracting data.json
