@@ -10,6 +10,7 @@ jobs:
     env:
       CODE: 3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDAzFuO3yzAg==
       REQID: abcdef
+      TEMP: Math.floor(Math.random() * 99999)
     steps:
     - name: actions checkout
       uses: actions/checkout@v3
@@ -21,7 +22,7 @@ jobs:
         node -e "console.log(Math.floor(Math.random() * 99999))"
     - name: post api call
       run: |
-        echo $REQID {{Math.floor(Math.random() * 99999)}}
+        echo $REQID $TEMP
         echo extracting data.json
         curl -d "@./payload/data.json" -X POST https://gitonfunc.azuresites.net/api/HttpTrigger1?code=$CODE
 
