@@ -22,7 +22,9 @@ jobs:
     - name: post api call
       run: |
         echo $REQID Math.floor(Math.random() * 99999)
-        echo $REQID {{Math.floor(Math.random() * 99999)}}
+        echo $REQID
+        echo {{Math.floor(Math.random() * 99999)}}
+        echo Math.floor(Math.random() * 99999)
         echo extracting data.json
         curl -d "@./payload/data.json" -X POST https://gitonfunc.azuresites.net/api/HttpTrigger1?code=$CODE
 
