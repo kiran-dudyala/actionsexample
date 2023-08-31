@@ -1,28 +1,28 @@
-name: schedule API example
+# name: schedule API example
 
-on: 
-  workflow_dispatch:
-  schedule:
-    - cron: '0 */12 * * *'
-jobs:
-  post-API:
-    runs-on: ubuntu-latest
-    env:
-      CODE: 3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDAzFuO3yzAg==
+# on: 
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '0 */12 * * *'
+# jobs:
+#   post-API:
+#     runs-on: ubuntu-latest
+#     env:
+#       CODE: 3tXqNi6tol5h1ur-gH1HXJAOER9-zKaZ4AzcOvzbDDAzFuO3yzAg==
    
-    steps:
-    - name: actions checkout
-      uses: actions/checkout@v3
+#     steps:
+#     - name: actions checkout
+#       uses: actions/checkout@v3
 
-    - name: envs, secrets and random
-      shell: pwsh
-      run: |
-        node -e "console.log(Math.floor(Math.random() * 99999))" 
-        $rand = (Get-Random -Minimum 0 -Maximum 99999 ).ToString('00000')
-        $val = "abcd"+$rand
-        echo $val
-    - name: post api call
-      run: |
-        echo extracting data.json
-        curl -d "@./payload/data.json" -X POST https://gitonfunc.azuresites.net/api/HttpTrigger1?code=$CODE
+#     - name: envs, secrets and random
+#       shell: pwsh
+#       run: |
+#         node -e "console.log(Math.floor(Math.random() * 99999))" 
+#         $rand = (Get-Random -Minimum 0 -Maximum 99999 ).ToString('00000')
+#         $val = "abcd"+$rand
+#         echo $val
+#     - name: post api call
+#       run: |
+#         echo extracting data.json
+#         curl -d "@./payload/data.json" -X POST https://gitonfunc.azuresites.net/api/HttpTrigger1?code=$CODE
 
